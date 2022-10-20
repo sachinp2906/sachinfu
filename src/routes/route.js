@@ -160,4 +160,47 @@ router.post( "/post-query-2", function (req, res){
 })
 
 
+// assignment 
+let persons= [
+    {
+    name: "PK",
+    age: 10,
+    votingStatus: false
+ },
+ {
+    name: "SK",
+    age: 20,
+    votingStatus: false
+ },
+ {
+    name: "AA",
+    age: 70,
+    votingStatus: false
+ },
+ {
+    name: "SC",
+    age: 5,
+    votingStatus: false
+ },
+ {
+    name: "HO",
+    age: 40,
+    votingStatus: false
+ }
+ ]
+
+ router.post('/voter' , function(req ,res) {
+    const voterAge = req.query.voterAge
+    const arr = [];
+    for(let i=0 ; i<persons.length ; i++) {
+        if(persons[i].age>=voterAge) {
+            persons[i].votingStatus = true;
+            arr.push(persons[i])
+        } 
+    }
+    console.log(persons , arr)
+    res.send({data:persons , data1:arr})
+ })
+
+
 module.exports = router;
