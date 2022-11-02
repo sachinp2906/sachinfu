@@ -12,7 +12,7 @@ router.get("/test-me", function (req, res) {
 
 
 
-router.post("/createBook", BookController.createBook  )
+router.post("/createBook", BookController.createBook)
 
 
 
@@ -56,6 +56,9 @@ router.get("/basicRoute", commonMW.mid1, commonMW.mid2, commonMW.mid3, commonMW.
 // router.get("/basicRoute3", commonMW.mid2, UserController.basicCode3)
 // router.get("/basicRoute4", commonMW.mid1, commonMW.mid4, UserController.basicCode4)
 
+// assignment portion
+
+router.get("/midIp" ,commonMW.midTime, commonMW.midIP , commonMW.midRoute , commonMW.local )
 
 
 
