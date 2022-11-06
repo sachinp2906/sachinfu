@@ -1,26 +1,32 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const userSchema = new mongoose.Schema( {
-        "name" : String,
-        "balance" : {
-            type: Number,
-            default : 100
-        },
-        "address" : String,
-        "age" : Number,
-        "gender" : {
-            type : String,
-            enum : ["male" , "female" , "other"]
-        },
-        "isFreeAppUser" : {
-            type : Boolean,
-            default : false
-        }
-    }, { timestamps: true });
+const userSchema = new mongoose.Schema({
+    "name" : {
+        type : String,
+        require : true
+    },
+    "balance": {
+        type : Number,
+        require : true
+    },
+    "address": {
+        type : String,
+        require : true
+    },
+    "age" : {
+        type : Number,
+        require : true
+    },
+    "gender" : {
+        type: String,
+        enum : ["male" , "female" , "other"],
+        require : true
+    },
+    "isFreeAppUser" : {
+        type : Boolean,
+        require : true,
+        default : false
+    }
+} , {timestamps : true})
 
-module.exports = mongoose.model('User', userSchema) //users
-
-
-
-// String, Number
-// Boolean, Object/json, array
+module.exports = mongoose.model('UserCollection' , userSchema)

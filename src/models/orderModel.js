@@ -1,23 +1,26 @@
-const { default: mongoose } = require("mongoose");
-const ObjectId = mongoose.Schema.Types.ObjectId;
-const orderSchema = mongoose.Schema({
-  userId: {
-    type: ObjectId,
-    ref: "User",
-    required: [true, "Please add Your Id!"],
-  },
-  productId: {
-    type: ObjectId,
-    ref: "Product",
-    required: [true, "Please add Product Id!"],
-  },
-  amount: {
-    type: Number,
-  },
-  isFreeAppUser: Boolean,
-  date: {
-    type: Date,
-  },
-});
+const mongoose = require('mongoose')
+const ObjectId = mongoose.Schema.Types.ObjectId
 
-module.exports = mongoose.model("Order", orderSchema);
+const orderSchema = new mongoose.Schema({
+     "userId" : {
+        type : ObjectId,
+        ref : "UserCollection",
+        required : true
+     },
+     "productId" : {
+        type : ObjectId,
+        ref : "ProductCollection",
+        required : true
+     },
+     "amount" : {
+        type : Number
+     },
+     "isFreeAppUser" : {
+        type : Boolean
+     },
+     "date" : {
+        type:"String"
+     }
+})
+
+module.exports = mongoose.model("OrderCollection" , orderSchema)
